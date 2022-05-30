@@ -7,6 +7,7 @@ import au.com.dius.pact.provider.junit5.PactVerificationContext;
 import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvider;
 import au.com.dius.pact.provider.junitsupport.Provider;
 import au.com.dius.pact.provider.junitsupport.State;
+import au.com.dius.pact.provider.junitsupport.loader.PactFilter;
 import au.com.dius.pact.provider.junitsupport.loader.PactFolder;
 import com.shaunmendham.pact.provider.model.Product;
 import com.shaunmendham.pact.provider.service.ProductService;
@@ -25,6 +26,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @Provider("product-provider")
 @SpringBootTest(classes = ProviderApplication.class, webEnvironment = WebEnvironment.RANDOM_PORT)
 @PactFolder("../pacts")
+@PactFilter(filter = ByInteractionType.class, value = "Synchronous/HTTP")
 class ProductsRestPactProviderTest {
 
     @LocalServerPort
