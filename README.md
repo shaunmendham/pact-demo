@@ -4,7 +4,8 @@
 
 ```
 # Generate PACTs
-cd consumer && gradle test
+cd consumer-kafka && gradle test
+cd consumer-rest && gradle test
 ls pacts
 
 # Run Provider against PACTs
