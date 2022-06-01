@@ -5,6 +5,7 @@ import static org.mockito.Mockito.when;
 import au.com.dius.pact.provider.junit5.HttpTestTarget;
 import au.com.dius.pact.provider.junit5.PactVerificationContext;
 import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvider;
+import au.com.dius.pact.provider.junitsupport.Consumer;
 import au.com.dius.pact.provider.junitsupport.Provider;
 import au.com.dius.pact.provider.junitsupport.State;
 import au.com.dius.pact.provider.junitsupport.loader.PactFolder;
@@ -25,6 +26,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @Provider("product-provider")
 @SpringBootTest(classes = ProviderApplication.class, webEnvironment = WebEnvironment.RANDOM_PORT)
 @PactFolder("../pacts")
+@Consumer("product-consumer-rest")
 class ProductsRestPactProviderTest {
 
     @LocalServerPort

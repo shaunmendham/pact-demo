@@ -7,6 +7,7 @@ import au.com.dius.pact.provider.PactVerifyProvider;
 import au.com.dius.pact.provider.junit5.MessageTestTarget;
 import au.com.dius.pact.provider.junit5.PactVerificationContext;
 import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvider;
+import au.com.dius.pact.provider.junitsupport.Consumer;
 import au.com.dius.pact.provider.junitsupport.Provider;
 import au.com.dius.pact.provider.junitsupport.loader.PactFolder;
 import com.shaunmendham.pact.provider.model.Product;
@@ -30,6 +31,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @SpringBootTest(classes = {ProviderApplication.class}, webEnvironment = WebEnvironment.RANDOM_PORT)
 @Provider("product-provider")
 @PactFolder("../pacts")
+@Consumer("product-consumer-kafka")
 class ProductsKafkaPactProviderTest {
 
     @MockBean
